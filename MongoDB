@@ -1,11 +1,33 @@
-#-------------------------------------------------------------------------------
-# Installation:
-# https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
-# Note: 
-#  MongoDB only provides packages for the following 64-bit LTS (long-term 
-#  support) Ubuntu release(s):
-#   16.04 LTS (xenial)
-#   18.04 LTS (bionic)
-#-------------------------------------------------------------------------------
+* Installation:
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+* By default, MongoDB instance stores:
+ - its data files in /var/lib/mongodb
+ - its log files in /var/log/mongodb
+
+* Start MongoDB: 
+sudo service mongod start
+
+* Verify that MongoDB has started successfully:
+tail -n 10 /var/log/mongodb/mongod.log
+
+* Stop MongoDB:
+sudo service mongod stop
+
+* Restart MongoDB:
+sudo service mongod restart
+
+* Begin using MongoDB:
+mongo
+
+* Uninstall MongoDB
+Stop MongoDB -> sudo apt-get purge mongodb-enterprise* 
+-> sudo rm -r /var/log/mongodb
+-> sudo rm -r /var/lib/mongodb
 
 
+
+
+
+
+ 

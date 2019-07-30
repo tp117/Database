@@ -1,0 +1,35 @@
+> mongo
+> cls
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+
+* Create Read Update and Delete (CRUD) operations as well as doing a bulk insert:
+> db.createCollection("staff_info")
+{ "ok" : 1 }
+
+> show collections
+staff_info
+
+> db.staff_info.insert({name:"jenny",phone:"8675309",status:"jessies"})
+> db.staff_info.insert({name:"phat",phone:"123456",status:"happy"})
+WriteResult({ "nInserted" : 1 })
+
+> db.staff_info.find()
+{ "_id" : ObjectId("5d40750f42ae6e691d1592b1"), "name" : "jenny", "phone" : "8675309", "status" : "jessies" }
+{ "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "happy" }
+
+> db.staff_info.updateOne({name:"phat"},{$set:{status:"sad"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.staff_info.find({name:"phat"})
+{ "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "sad" }
+
+~$ sudo apt-get install -y git
+~$ git clone https://github.com/linuxacademy/content-db-essentials.git
+
+Bulk insert:
+cd content-db-essentials
+
+
+

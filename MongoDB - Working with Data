@@ -26,6 +26,8 @@ WriteResult({ "nInserted" : 1 })
 > db.staff_info.find({name:"phat"})
 { "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "sad" }
 
+
+
 ~$ sudo apt-get install -y git
 ~$ git clone https://github.com/linuxacademy/content-db-essentials.git
 

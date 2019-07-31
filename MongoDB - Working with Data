@@ -1,22 +1,33 @@
 * https://linuxacademy.com/cp/courses/lesson/course/4391/lesson/2/module/361
+
+* Start MongoDB: 
+sudo service mongod start
+
 > mongo
-> cls
+
+* CLEAR SCREEN
+> cls 
+
 > show dbs
 admin   0.000GB
 config  0.000GB
 local   0.000GB
 
 * Create Read Update and Delete (CRUD) operations as well as doing a bulk insert:
+
 > db.createCollection("staff_info")
 { "ok" : 1 }
 
+* SHOW COLLECTIONS:
 > show collections
 staff_info
 
+* INSERT DBS:
 > db.staff_info.insert({name:"jenny",phone:"8675309",status:"jessies"})
 > db.staff_info.insert({name:"phat",phone:"123456",status:"happy"})
 WriteResult({ "nInserted" : 1 })
 
+* UPDATE DBS:
 > db.staff_info.find()
 { "_id" : ObjectId("5d40750f42ae6e691d1592b1"), "name" : "jenny", "phone" : "8675309", "status" : "jessies" }
 { "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "happy" }
@@ -26,7 +37,36 @@ WriteResult({ "nInserted" : 1 })
 > db.staff_info.find({name:"phat"})
 { "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "sad" }
 
+* REMOVE DBS:
+> db.staff_info.find()
+{ "_id" : ObjectId("5d40750f42ae6e691d1592b1"), "name" : "jenny", "phone" : "8675309", "status" : "jessies" }
+{ "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "sad" }
 
+> db.staff_info.remove({name:"jenny"})
+WriteResult({ "nRemoved" : 1 })
+
+> db.staff_info.find()
+{ "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "sad" }
+
+* DROP COLLECTION:
+> db.staff_info.find()
+{ "_id" : ObjectId("5d40781515e9bd4facb17af6"), "name" : "phat", "phone" : "123456", "status" : "sad" }
+> db.staff_info.drop()
+true
+> db.staff_info.find()
+
+* DROP DATABASES:
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+test    0.000GB
+> db.dropDatabase()
+{ "dropped" : "test", "ok" : 1 }
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
 
 ~$ sudo apt-get install -y git
 ~$ git clone https://github.com/linuxacademy/content-db-essentials.git
